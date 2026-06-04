@@ -1,0 +1,5 @@
+mason_simulator
+minimap2/
+pbsim2/
+ecoli_reference.fasta
+k_mer_index_k_*.pkl
