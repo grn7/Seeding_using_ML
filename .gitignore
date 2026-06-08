@@ -10,3 +10,7 @@ k_mer_index_k_*.pkl
 *.sam
 *.ref
 *.fai
+__pycache__/
+labeled_dataset_k11.csv
+success_rate_histogram.png
+dataset_check.py

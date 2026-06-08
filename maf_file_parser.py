@@ -33,14 +33,21 @@ def parse_maf_truth(maf_file, output_tsv):
             # check if it's a Sequence ('s') line 
             elif columns[0] == 's':
                 
-                # If memory is empty, this MUST be the first 's' line (the Reference Genome)
+                # if memory is empty, this must be the first 's' line (the Reference Genome)
                 if current_ref_start is None: 
                     # store the data in our memory variables
                     current_ref_start = int(columns[2])
                     current_ref_length = int(columns[3])
                     current_strand = columns[4]
 
-                # If memory has data, this MUST be the second 's' line (the Simulated Read)
+                    # extract the full length of the E. coli chromosome (column 5)
+                    src_size = int(columns[5])
+
+                    # MAF reverse strand normalization
+                    if current_strand == '-':
+                        current_ref_start = src_size - current_ref_start - current_ref_length
+
+                # if memory has data, this must be the second 's' line (the Simulated Read)
                 else:
                     # extract read specific data
                     read_id = columns[1]
