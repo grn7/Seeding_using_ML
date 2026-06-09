@@ -14,3 +14,4 @@ __pycache__/
 labeled_dataset_k11.csv
 success_rate_histogram.png
 dataset_check.py
+training_data_*
